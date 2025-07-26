@@ -158,7 +158,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Combinatorial online learning is a fundamental task for selecting the optimal action
+            (or super arm) as a combination of base arms in sequential interactions with systems
+            providing stochastic rewards. It is applicable to diverse domains such as robotics,
+            social advertising, network routing, and recommendation systems. In many real
+            world scenarios, we often encounter rising rewards, where playing a base arm not
+            only provides an instantaneous reward but also contributes to the enhancement
+            of future rewards, e.g., robots enhancing proficiency through practice and social
+            influence strengthening in the history of successful recommendations. Moreover,
+            the enhancement of a single base arm may affect multiple super arms that include
+            it, introducing complex dependencies that are not captured by existing rising bandit
+            models. To address this, we introduce the Combinatorial Rising Bandit (CRB)
+            framework and propose a provably efficient algorithm, Combinatorial Rising Upper
+            Confidence Bound (CRUCB). We establish an upper bound on regret CRUCB
+            and show that it is nearly tight by deriving a matching lower bound. In addition,
+            we empirically demonstrate the effectiveness of CRUCB not only in synthetic
+            environments but also in realistic applications of deep reinforcement learning.
           </p>
         </div>
       </div>
