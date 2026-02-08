@@ -239,31 +239,54 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">4. Theoretical Results</h2>
-    
-    <div class="columns is-vcentered">
-      <div class="column is-7">
-        <div class="content has-text-justified">
-          <p>
-            Our theoretical analysis establishes that <strong>CRUCB</strong> is nearly optimal within the CRB framework. By comparing our <strong>Regret Upper Bound</strong> with the newly derived <strong>Regret Lower Bound</strong>, we demonstrate that the gap between them is minimal across a wide spectrum of reward-growth patterns[cite: 647, 649].
-          </p>
-          <p>
-            A key strength of CRUCB is its <strong>adaptivity</strong>: as illustrated in <strong>Figure 3</strong>, the algorithm automatically adjusts to the specific difficulty of the environment without any prior knowledge of the growth parameters[cite: 648]. To the best of our knowledge, this represents the first rigorous and explicit comparison between regret upper and lower bounds in the rising bandit literature[cite: 649].
-          </p>
-        </div>
+
+    <div class="box content" style="background-color: #f9f9f9; border-left: 5px solid #209cee;">
+      <h3 class="title is-4" style="color: #2c3e50;">Regret Upper Bound of CRUCB</h3>
+      <p>
+        Let \(\pi_{\epsilon}\) be the CRUCB policy with an adaptive sliding window parameter \(\epsilon \in (0, 1/2)\). 
+        Under Assumptions 1 and 2, for a non-increasing function \(f\) such that \(\gamma_i(n) \le f(n)\) for each base arm \(i\), 
+        the cumulative regret of CRUCB is bounded by:
+      </p>
+      <div class="has-text-centered my-5">
+        \[
+        Reg(\pi_{\epsilon}, T) = O\left(\max\left(KT^{\frac{2}{3}}(\log T)^{\frac{1}{3}}, KT^q \int_{1}^{(1-2\epsilon)\frac{LT}{K}} f(n)^q dn\right)\right)
+        \]
+      </div>
+      
+      <h4 class="title is-5 mt-4">Interpretation</h4>
+      <p>The upper bound consists of two primary components:</p>
+      <ul>
+        <li><strong>Randomness Impact:</strong> The term \(O(KT^{2/3}(\log T)^{1/3})\) captures the regret incurred due to stochasticity in observed outcomes.</li>
+        <li><strong>Growth Adaptation:</strong> The second term reflects the difficulty of the instance determined by the reward growth rate \(f(n)\). For instance, when \(f(n)=(n+1)^{-c}\) and \(c > 1\), CRUCB achieves sub-linear regret, demonstrating its <em>adaptivity</em> to varying learning difficulties.</li>
+      </ul>
+    </div>
+
+    <div class="box content mt-6" style="background-color: #f9f9f9; border-left: 5px solid #ee5253;">
+      <h3 class="title is-4" style="color: #2c3e50;">Regret Lower Bound for Fine-grained Instances</h3>
+      <p>
+        To analyze instances that allow for efficient learning, we define a fine-grained class of CRB instances \(\mathcal{A}_c\) for an arbitrary constant \(1 < c < 2\) as:
+      </p>
+      <div class="notification is-white has-text-centered py-4" style="border: 1px dashed #ccc;">
+        \[
+        \mathcal{A}_c := \left\{ \nu : \gamma_i(n) \le (n+1)^{-c}, \forall i \in [K], n \in [T-1] \right\}
+        \]
+      </div>
+      <p>For any policy acting on this class \(\mathcal{A}_c\), the worst-case regret is bounded by:</p>
+      <div class="has-text-centered my-5">
+        \[
+        \min_{\pi} \max_{\nu \in \mathcal{A}_c} Reg_{\nu}(\pi, T) = \Omega\left(\max\{L\sqrt{T}, LT^{2-c}\}\right)
+        \]
       </div>
 
-      <div class="column is-5 has-text-centered">
-        <div class="box p-4" style="background-color: #ffffff;">
-          <img src="static/images/bound_gap.png" alt="Figure 3: Regret Bound Gap" style="width: 100%; height: auto;"/>
-          <p class="is-size-7 mt-2">
-            <strong>Figure 3: Regret bound gap.</strong> The orders of our upper and lower bounds closely match across varying problem difficulties.
-          </p>
-        </div>
-      </div>
+      <h4 class="title is-5 mt-4">Interpretation</h4>
+      <p>
+        This result serves as a structural separator between "easy" and "inherently difficult" instances. 
+        A larger \(c\) leads to slower outcome growth and a corresponding reduction in the regret lower bound. 
+        Crucially, as shown in <strong>Figure 3</strong>, the gap between our upper and lower bounds is minimal, establishing the <strong>theoretical tightness</strong> of our CRB framework.
+      </p>
     </div>
   </div>
 </section>
-
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
