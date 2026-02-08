@@ -282,7 +282,7 @@
         <div class="box" style="background-color: #ffffff;">
           <img src="static/images/bound_gap.png" alt="Figure 3: Regret Bound Gap" style="width: 100%; height: auto;"/>
           <p class="is-size-7 mt-2">
-            <strong>Figure 3: Regret bound gap.</strong> The orders of our upper and lower bounds closely match across varying growth rates \(c\), establishing theoretical tightness.
+            <strong>Figure 2: Regret bound gap.</strong> The orders of our upper and lower bounds closely match across varying growth rates \(c\), establishing theoretical tightness.
           </p>
         </div>
       </div>
@@ -305,7 +305,7 @@
     
     <div class="content has-text-justified">
       <p>
-        We evaluate <strong>CRUCB</strong> on <strong>AntMaze</strong>, a standard benchmark in reinforcement learning (RL). As illustrated in the performance overview below, while the observed outcomes <strong>(Figure 3b)</strong> exhibit non-concave dynamics during the initial learning phase, CRUCB effectively adapts once reward growth begins. This robustness allows our method to significantly outperform all baselines, achieving a nearly flat regret curve <strong>(Figure 3c)</strong>, whereas traditional algorithms accumulate linear regret due to their inability to handle coupled structural dependencies.
+        We evaluate <strong>CRUCB</strong> on <strong>AntMaze</strong>, a standard benchmark in reinforcement learning (RL). As illustrated in the performance overview below, while the observed outcomes (Figure 3b) exhibit non-concave dynamics during the initial learning phase, CRUCB effectively adapts once reward growth begins. This robustness allows our method to significantly outperform all baselines, achieving a nearly flat regret curve (Figure 3c) whereas traditional algorithms accumulate linear regret due to their inability to handle coupled structural dependencies.
       </p>
     </div>
 
@@ -324,7 +324,7 @@
 
     <div class="content has-text-justified mt-6">
       <p>
-        A deep dive into the exploration patterns <strong>(Figure 4)</strong> reveals the structural reasons for this performance gap. While non-combinatorial methods result in scattered, breadth-first search patterns and naive combinatorial methods get trapped in local impossible paths, <strong>CRUCB</strong> integrates the rising reward nature with the graph structure to focus its exploration budget on the optimal path, mimicking the focused behavior of an oracle policy.
+        A deep dive into the exploration patterns (Figure 4) reveals the structural reasons for this performance gap. While non-combinatorial methods result in scattered, breadth-first search patterns and naive combinatorial methods get trapped in local impossible paths, <strong>CRUCB</strong> integrates the rising reward nature with the graph structure to focus its exploration budget on the optimal path, mimicking the focused behavior of an oracle policy.
       </p>
     </div>
 
@@ -334,7 +334,7 @@
           <figure class="has-text-centered">
             <img src="static/images/heatmap.png" alt="Exploration Heatmaps" style="width: 100%; height: auto;"/>
             <p class="is-size-7 mt-2">
-              <strong>Figure 4:</strong> Evolution of visit frequencies at $t=100, 500,$ and $3000$. CRUCB demonstrates the most efficient convergence toward the goal.
+              Figure 4:Evolution of visit frequencies at $t=100, 500,$ and $3000$. CRUCB demonstrates the most efficient convergence toward the goal.
             </p>
           </figure>
         </div>
