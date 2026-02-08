@@ -156,22 +156,23 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">2. Combinatorial Rising Bandits</h2>
-    
-    <div class="content has-text-justified">
-      <p>
-        The <strong>Combinatorial Rising Bandit (CRB)</strong> framework formalizes online decision-making in environments where selecting a combination of actions—a super arm—not only yields an immediate reward but also enhances the future expected outcomes of its constituent base arms [cite: 63, 77-78]. As illustrated in the toy example <strong>(a-b)</strong>, this rising nature implies that certain actions, like the "late bloomer" edge, can eventually provide higher rewards after a sufficient number of pulls [cite: 82, 102-103]. The fundamental and unique challenge that distinguishes CRB from existing models is <strong>partially shared enhancement</strong>: because multiple super arms often share common base arms (such as the "shared edge" in the figure), improvements gained from one choice naturally propagate to others [cite: 62, 79-80]. This structural dependency couples the reward dynamics across actions, requiring an agent to look beyond immediate gains to achieve optimal long-term performance—a capability demonstrated by our method's ability to minimize regret and converge on the optimal path where baseline algorithms fail <strong>(c-d)</strong> [cite: 104-106].
-      </p>
-    </div>
+  
 
     <div class="columns is-centered">
       <div class="column is-10">
         <div class="has-text-centered">
-          <img src="static/images/toy_case.png" alt="Toy Example: Rising Rewards and Shared Enhancement" style="width: 50%; height: auto;"/>
+          <img src="static/images/toy_case.png" alt="Toy Example: Rising Rewards and Shared Enhancement" style="width: 100%; height: auto;"/>
           <p class="is-size-7 mt-2">
-            <strong>Figure 1:</strong> (a) Toy graph with shared edges. (b) Outcome functions showing reward growth [cite: 82, 102-103]. (c-d) Regret and pull comparison highlighting our method's advantage in handling partially shared enhancement [cite: 104-106].
+            <strong>Figure 1:</strong> (a) Toy graph with shared edges. (b) Outcome functions showing reward growth. (c-d) Regret and pull comparison highlighting our method's advantage in handling partially shared enhancement.
           </p>
         </div>
       </div>
+    </div>
+
+    <div class="content has-text-justified">
+      <p>
+        The <strong>Combinatorial Rising Bandit (CRB)</strong> framework formalizes online decision-making in environments where selecting a combination of actions—a super arm—not only yields an immediate reward but also enhances the future expected outcomes of its constituent base arms. As illustrated in the toy example <strong>(a-b)</strong>, this rising nature implies that certain actions, like the "late bloomer" edge, can eventually provide higher rewards after a sufficient number of pulls . The fundamental and unique challenge that distinguishes CRB from existing models is <strong>partially shared enhancement</strong>: because multiple super arms often share common base arms (such as the "shared edge" in the figure), improvements gained from one choice naturally propagate to others [cite: 62, 79-80]. This structural dependency couples the reward dynamics across actions, requiring an agent to look beyond immediate gains to achieve optimal long-term performance—a capability demonstrated by our method's ability to minimize regret and converge on the optimal path where baseline algorithms fail <strong>(c-d)</strong>.
+      </p>
     </div>
 
   </div>
