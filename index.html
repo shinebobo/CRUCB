@@ -155,162 +155,34 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">2. Combinatorial Rising Bandits (CRB)</h2>
+    <h2 class="title is-3">2. Combinatorial Rising Bandits</h2>
     <div class="columns is-vcentered">
-      <div class="column is-6">
+      <div class="column is-7">
         <div class="content has-text-justified">
-          <h3 class="title is-5">Practice Makes Perfect: The "Rising" Reward</h3>
           <p>
-            In many real-world scenarios, pulling a base arm doesn't just provide an immediate reward—it contributes to the enhancement of future rewards. For example, in robotic planning, as low-level skills are reused across different tasks, their execution improves through practice [cite: 70-71].
-          </p>
-          <h3 class="title is-5">The Challenge of Partial Shared Enhancement</h3>
-          <p>
-            Standard rising bandit models consider arms in isolation. However, in <strong>Combinatorial Rising Bandits (CRB)</strong>, super arms are composed of multiple base arms that may overlap. This creates <strong>partially shared enhancement</strong>: practicing a skill in one sequence improves all other sequences that share that same skill.
+            The <strong>Combinatorial Rising Bandit (CRB)</strong> framework formalizes decision-making in environments where selecting a combination of actions (a super arm) enhances the future rewards of its underlying components (base arms). Unlike traditional models, the fundamental challenge here is <strong>partially shared enhancement</strong>: since different super arms often overlap by sharing the same base arms—illustrated by the "shared edge" in Figure 1—the improvements gained from one choice naturally propagate to other potential actions. This structural dependency creates a complex coupling of reward dynamics, making the search for an optimal policy significantly more intricate than in standard bandit settings.
           </p>
         </div>
       </div>
-      <div class="column is-6 has-text-centered">
-        <img src="static/images/toy_graph.png" alt="Toy Graph Illustration" style="max-width: 80%;"/>
-        <p class="is-size-7 mt-2">Figure 1: Path Selection with Shared Edges </p>
-      </div>
-    </div>
-    
-    <div class="content has-text-justified mt-5">
-      <h3 class="title is-5">Toy Example: Early Peakers vs. Late Bloomers</h3>
-      <p>
-        Consider a path-finding task with two distinct options:
-      </p>
-      <ul>
-        <li><strong>The Early Peaker:</strong> Starts with high rewards but flattens quickly. It represents an "easy win" that becomes sub-optimal over time.</li>
-        <li><strong>The Late Bloomer:</strong> Starts with lower rewards but rises rapidly through repeated use, eventually becoming the optimal path for long horizons.</li>
-        <li><strong>Standard Failure:</strong> Conventional combinatorial algorithms often get stuck on the Early Peaker because they cannot account for the future growth potential of the Late Bloomer [cite: 107-108].</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
+      <div class="column is-5 has-text-centered">
+        <img src="static/images/toy_graph.png" alt="Toy Graph Illustration" style="max-width: 100%;"/>
+        <p class="is-size-7 mt-2">Figure 1: Path Selection with Partially Shared Enhancement</p>
       </div>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
 
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code> @inproceedings{song2026combinatorial,
+        title={Combinatorial Rising Bandits},
+        author={Song, Seockbean and Yoon, Youngsik and Wang, Siwei and Chen, Wei and Ok, Jungseul},
+        booktitle={International Conference on Learning Representations},
+        year={2026}
+      } /code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
