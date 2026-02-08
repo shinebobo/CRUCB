@@ -239,50 +239,60 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">4. Theoretical Results</h2>
-
-    <div class="box content" style="background-color: #f9f9f9; border-left: 5px solid #209cee;">
-      <h3 class="title is-4" style="color: #2c3e50;">Regret Upper Bound of CRUCB</h3>
+    <div class="content has-text-justified">
       <p>
-        Let \(\pi_{\epsilon}\) be the CRUCB policy with an adaptive sliding window parameter \(\epsilon \in (0, 1/2)\). 
-        Under Assumptions 1 and 2, for a non-increasing function \(f\) such that \(\gamma_i(n) \le f(n)\) for each base arm \(i\), 
-        the cumulative regret of CRUCB is bounded by:
+        We establish the first explicit and rigorous comparison between regret upper and lower bounds in rising bandit literature. Our analysis demonstrates that <strong>CRUCB</strong> achieves near-optimal efficiency by adapting to the inherent difficulty of the reward growth pattern.
       </p>
-      <div class="has-text-centered my-5">
-        \[
-        Reg(\pi_{\epsilon}, T) = O\left(\max\left(KT^{\frac{2}{3}}(\log T)^{\frac{1}{3}}, KT^q \int_{1}^{(1-2\epsilon)\frac{LT}{K}} f(n)^q dn\right)\right)
-        \]
-      </div>
-      
-      <h4 class="title is-5 mt-4">Interpretation</h4>
-      <p>The upper bound consists of two primary components:</p>
-      <ul>
-        <li><strong>Randomness Impact:</strong> The term \(O(KT^{2/3}(\log T)^{1/3})\) captures the regret incurred due to stochasticity in observed outcomes.</li>
-        <li><strong>Growth Adaptation:</strong> The second term reflects the difficulty of the instance determined by the reward growth rate \(f(n)\). For instance, when \(f(n)=(n+1)^{-c}\) and \(c > 1\), CRUCB achieves sub-linear regret, demonstrating its <em>adaptivity</em> to varying learning difficulties.</li>
-      </ul>
     </div>
 
-    <div class="box content mt-6" style="background-color: #f9f9f9; border-left: 5px solid #ee5253;">
-      <h3 class="title is-4" style="color: #2c3e50;">Regret Lower Bound for Fine-grained Instances</h3>
+    <div class="box content" style="background-color: #fcfcfc; border: 1px solid #e0e0e0;">
+      <h3 class="title is-5">Problem Instance Class \(\mathcal{A}_c\)</h3>
       <p>
-        To analyze instances that allow for efficient learning, we define a fine-grained class of CRB instances \(\mathcal{A}_c\) for an arbitrary constant \(1 < c < 2\) as:
+        To analyze the learning difficulty across different scenarios, we define a fine-grained class of CRB instances \(\mathcal{A}_c\) for an arbitrary constant \(1 < c < 2\) as:
       </p>
-      <div class="notification is-white has-text-centered py-4" style="border: 1px dashed #ccc;">
+      <div class="notification is-white has-text-centered py-4" style="border: 1px dashed #bbb;">
         \[
         \mathcal{A}_c := \left\{ \nu : \gamma_i(n) \le (n+1)^{-c}, \forall i \in [K], n \in [T-1] \right\}
         \]
       </div>
-      <p>For any policy acting on this class \(\mathcal{A}_c\), the worst-case regret is bounded by:</p>
-      <div class="has-text-centered my-5">
-        \[
-        \min_{\pi} \max_{\nu \in \mathcal{A}_c} Reg_{\nu}(\pi, T) = \Omega\left(\max\{L\sqrt{T}, LT^{2-c}\}\right)
-        \]
+      <p class="is-size-7">
+        This class \(\mathcal{A}_c\) acts as a structural separator: a larger \(c\) corresponds to slower outcome growth ("easy" instances), while a smaller \(c\) indicates faster growth ("difficult" instances) [cite: 591-592, 644-645].
+      </p>
+    </div>
+
+    <div class="columns is-vcentered mt-6">
+      <div class="column is-7">
+        <div class="box content" style="border-left: 5px solid #209cee; background-color: #f9f9f9;">
+          <h4 class="title is-5" style="color: #2c3e50;">Regret Upper Bound (Corollary 2)</h4>
+          <p>For the problem class \(\mathcal{A}_c\), the cumulative regret of CRUCB is bounded by:</p>
+          <div class="has-text-centered my-4">
+            \[ Reg(\pi_{\epsilon}, T) = O\left(\max\{T^{2/3}, T^{2-c}\}\right) \]
+          </div>
+        </div>
+
+        <div class="box content mt-5" style="border-left: 5px solid #ee5253; background-color: #f9f9f9;">
+          <h4 class="title is-5" style="color: #2c3e50;">Regret Lower Bound (Theorem 5)</h4>
+          <p>For any policy acting on the class \(\mathcal{A}_c\), the worst-case regret is bounded by:</p>
+          <div class="has-text-centered my-4">
+            \[ \min_{\pi} \max_{\nu \in \mathcal{A}_c} Reg_{\nu}(\pi, T) = \Omega\left(\max\{\sqrt{T}, T^{2-c}\}\right) \]
+          </div>
+        </div>
       </div>
 
-      <h4 class="title is-5 mt-4">Interpretation</h4>
+      <div class="column is-5 has-text-centered">
+        <div class="box" style="background-color: #ffffff;">
+          <img src="static/images/bound_gap.png" alt="Figure 3: Regret Bound Gap" style="width: 100%; height: auto;"/>
+          <p class="is-size-7 mt-2">
+            <strong>Figure 3: Regret bound gap.</strong> The orders of our upper and lower bounds closely match across varying growth rates \(c\), establishing theoretical tightness[cite: 647, 653].
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content has-text-justified mt-5">
+      <h3 class="title is-5">Interpretation</h3>
       <p>
-        This result serves as a structural separator between "easy" and "inherently difficult" instances. 
-        A larger \(c\) leads to slower outcome growth and a corresponding reduction in the regret lower bound. 
-        Crucially, as shown in <strong>Figure 3</strong>, the gap between our upper and lower bounds is minimal, establishing the <strong>theoretical tightness</strong> of our CRB framework.
+        As illustrated in <strong>Figure 3</strong>, the gap between our upper and lower bounds is minimal. CRUCB effectively adapts to varying problem difficulties without prior knowledge of the growth parameter \(c\), ensuring robustness across diverse rising reward scenarios [cite: 648-649].
       </p>
     </div>
   </div>
