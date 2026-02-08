@@ -103,7 +103,7 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/ml-postech/Combinatorial-Rising-Bandits" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -139,29 +139,55 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Combinatorial online learning is a fundamental task for selecting the optimal action
-            (or super arm) as a combination of base arms in sequential interactions with systems
-            providing stochastic rewards. It is applicable to diverse domains such as robotics,
-            social advertising, network routing, and recommendation systems. In many real
-            world scenarios, we often encounter rising rewards, where playing a base arm not
-            only provides an instantaneous reward but also contributes to the enhancement
-            of future rewards, e.g., robots enhancing proficiency through practice and social
-            influence strengthening in the history of successful recommendations. Moreover,
-            the enhancement of a single base arm may affect multiple super arms that include
-            it, introducing complex dependencies that are not captured by existing rising bandit
-            models. To address this, we introduce the Combinatorial Rising Bandit (CRB)
-            framework and propose a provably efficient algorithm, Combinatorial Rising Upper
-            Confidence Bound (CRUCB). We establish an upper bound on regret CRUCB
-            and show that it is nearly tight by deriving a matching lower bound. In addition,
-            we empirically demonstrate the effectiveness of CRUCB not only in synthetic
-            environments but also in realistic applications of deep reinforcement learning.
-          </p>
+            Combinatorial online learning is a fundamental task for selecting the optimal action (or super arm) as a combination of base arms in sequential interactions with systems providing stochastic rewards.
+            It is applicable to diverse domains such as robotics, social advertising, network routing, and recommendation systems.
+            In many real-world scenarios, we often encounter rising rewards, where playing a base arm not only provides an instantaneous reward but also contributes to the enhancement of future rewards, e.g., robots improving through practice and social influence strengthening in the history of successful recommendations.
+            Crucially, these enhancements may propagate to multiple super arms that share the same base arms, introducing dependencies beyond the scope of existing bandit models.
+            To address this gap, we introduce the Combinatorial Rising Bandit (CRB) framework and propose a provably efficient and empirically effective algorithm, Combinatorial Rising Upper Confidence Bound (CRUCB).
+            We empirically demonstrate the effectiveness of CRUCB in realistic deep reinforcement learning environments and synthetic settings, while our theoretical analysis establishes tight regret bounds. Together, they underscore the practical impact and theoretical rigor of our approach.
         </div>
       </div>
     </div>
   </div>
 </section>
 <!-- End paper abstract -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">2. Combinatorial Rising Bandits (CRB)</h2>
+    <div class="columns is-vcentered">
+      <div class="column is-6">
+        <div class="content has-text-justified">
+          <h3 class="title is-5">Practice Makes Perfect: The "Rising" Reward</h3>
+          <p>
+            In many real-world scenarios, pulling a base arm doesn't just provide an immediate reward—it contributes to the enhancement of future rewards. For example, in robotic planning, as low-level skills are reused across different tasks, their execution improves through practice [cite: 70-71].
+          </p>
+          <h3 class="title is-5">The Challenge of Partial Sharing</h3>
+          <p>
+            Standard rising bandit models consider arms in isolation. However, in <strong>Combinatorial Rising Bandits (CRB)</strong>, super arms are composed of multiple base arms that may overlap. This creates <strong>partially shared enhancement</strong>: practicing a skill in one sequence improves all other sequences that share that same skill.
+          </p>
+        </div>
+      </div>
+      <div class="column is-6 has-text-centered">
+        <img src="static/images/toy_graph.pdf" alt="Toy Graph Illustration" style="max-width: 80%;"/>
+        <p class="is-size-7 mt-2">Figure 1: Path Selection with Shared Edges </p>
+      </div>
+    </div>
+    
+    <div class="content has-text-justified mt-5">
+      <h3 class="title is-5">Toy Example: Early Peakers vs. Late Bloomers</h3>
+      <p>
+        Consider a path-finding task with two distinct options:
+      </p>
+      <ul>
+        <li><strong>The Early Peaker:</strong> Starts with high rewards but flattens quickly. It represents an "easy win" that becomes sub-optimal over time.</li>
+        <li><strong>The Late Bloomer:</strong> Starts with lower rewards but rises rapidly through repeated use, eventually becoming the optimal path for long horizons.</li>
+        <li><strong>Standard Failure:</strong> Conventional combinatorial algorithms often get stuck on the Early Peaker because they cannot account for the future growth potential of the Late Bloomer [cite: 107-108].</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 
 <!-- Image carousel -->
