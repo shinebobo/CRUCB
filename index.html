@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Combinatorial Rising Bandit</title>
+  <title>Combinatorial Rising Bandits</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -163,15 +163,15 @@
           <p>
             In many real-world scenarios, pulling a base arm doesn't just provide an immediate reward—it contributes to the enhancement of future rewards. For example, in robotic planning, as low-level skills are reused across different tasks, their execution improves through practice [cite: 70-71].
           </p>
-          <h3 class="title is-5">The Challenge of Partial Sharing</h3>
+          <h3 class="title is-5">The Challenge of Partial Shared Enhancement</h3>
           <p>
             Standard rising bandit models consider arms in isolation. However, in <strong>Combinatorial Rising Bandits (CRB)</strong>, super arms are composed of multiple base arms that may overlap. This creates <strong>partially shared enhancement</strong>: practicing a skill in one sequence improves all other sequences that share that same skill.
           </p>
         </div>
       </div>
       <div class="column is-6 has-text-centered">
-        <img src="static/images/toy_graph.pdf" alt="Toy Graph Illustration" style="max-width: 80%;"/>
-        <p class="is-size-7 mt-2">Figure 1: Path Selection with Shared Edges </p>
+        <img src="static/images/toy_graph.jpg" alt="Toy Graph Illustration" style="max-width: 80%;"/>
+        <p class="is-size-7 mt-2">Figure 1: Path Selection with Shared Edges (Test) </p>
       </div>
     </div>
     
