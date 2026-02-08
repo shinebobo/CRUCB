@@ -256,7 +256,7 @@
         \]
       </div>
       <p class="is-size-7">
-        This class \(\mathcal{A}_c\) acts as a structural separator: a larger \(c\) corresponds to slower outcome growth ("easy" instances), while a smaller \(c\) indicates faster growth ("difficult" instances) [cite: 591-592, 644-645].
+        This class \(\mathcal{A}_c\) acts as a structural separator: a larger \(c\) corresponds to slower outcome growth (easy instances), while a smaller \(c\) indicates faster growth (difficult instances).
       </p>
     </div>
 
@@ -272,7 +272,7 @@
 
         <div class="box content mt-5" style="border-left: 5px solid #ee5253; background-color: #f9f9f9;">
           <h4 class="title is-5" style="color: #2c3e50;">Regret Lower Bound (Theorem 5)</h4>
-          <p>For any policy acting on the class \(\mathcal{A}_c\), the worst-case regret is bounded by:</p>
+          <p>For any algorithm on the class \(\mathcal{A}_c\), the worst-case regret is bounded by:</p>
           <div class="has-text-centered my-4">
             \[ \min_{\pi} \max_{\nu \in \mathcal{A}_c} Reg_{\nu}(\pi, T) = \Omega\left(\max\{\sqrt{T}, T^{2-c}\}\right) \]
           </div>
@@ -283,7 +283,7 @@
         <div class="box" style="background-color: #ffffff;">
           <img src="static/images/bound_gap.png" alt="Figure 3: Regret Bound Gap" style="width: 100%; height: auto;"/>
           <p class="is-size-7 mt-2">
-            <strong>Figure 3: Regret bound gap.</strong> The orders of our upper and lower bounds closely match across varying growth rates \(c\), establishing theoretical tightness[cite: 647, 653].
+            <strong>Figure 3: Regret bound gap.</strong> The orders of our upper and lower bounds closely match across varying growth rates \(c\), establishing theoretical tightness.
           </p>
         </div>
       </div>
@@ -292,7 +292,8 @@
     <div class="content has-text-justified mt-5">
       <h3 class="title is-5">Interpretation</h3>
       <p>
-        As illustrated in <strong>Figure 3</strong>, the gap between our upper and lower bounds is minimal. CRUCB effectively adapts to varying problem difficulties without prior knowledge of the growth parameter \(c\), ensuring robustness across diverse rising reward scenarios [cite: 648-649].
+        As illustrated in <strong>Figure 3</strong>, the gap between our upper and lower bounds is minimal. CRUCB effectively adapts to varying problem difficulties without prior knowledge of the growth parameter \(c\), ensuring robustness across diverse rising reward scenarios.
+        Please refer to our paper for the regret upper and lower bounds on the more general classes of instances.
       </p>
     </div>
   </div>
