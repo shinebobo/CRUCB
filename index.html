@@ -236,77 +236,13 @@
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">4. Theoretical Results</h2>
-    <div class="content has-text-justified">
-      <p>
-        We establish explicit and rigorous comparison between regret upper and lower bounds. 
-        Our analysis demonstrates that <strong>CRUCB</strong> achieves near-optimal efficiency by adapting to the inherent difficulty of the reward growth pattern.
-      </p>
-    </div>
-
-    <div class="box content" style="background-color: #fcfcfc; border: 1px solid #e0e0e0;">
-      <h3 class="title is-5">Problem Instance Class \(\mathcal{A}_c\)</h3>
-      <p>
-        To analyze the learning difficulty across different scenarios, we define a fine-grained class of CRB instances \(\mathcal{A}_c\) for an arbitrary constant \(1 < c < 2\) as:
-      </p>
-      <div class="notification is-white has-text-centered py-4" style="border: 1px dashed #bbb;">
-        \[
-        \mathcal{A}_c := \left\{ \nu : \gamma_i(n) \le (n+1)^{-c}, \forall i \in [K], n \in [T-1] \right\}
-        \]
-      </div>
-      <p class="is-size-7">
-        This class \(\mathcal{A}_c\) acts as a structural separator: a larger \(c\) corresponds to slower outcome growth (easy instances), while a smaller \(c\) indicates faster growth (difficult instances).
-      </p>
-    </div>
-
-    <div class="columns is-vcentered mt-6">
-      <div class="column is-7">
-        <div class="box content" style="border-left: 5px solid #209cee; background-color: #f9f9f9;">
-          <h4 class="title is-5" style="color: #2c3e50;">Regret Upper Bound (Corollary 2)</h4>
-          <p>For the problem class \(\mathcal{A}_c\), the cumulative regret of CRUCB is bounded by:</p>
-          <div class="has-text-centered my-4">
-            \[ Reg(\pi_{\epsilon}, T) = O\left(\max\{T^{2/3}, T^{2-c}\}\right) \]
-          </div>
-        </div>
-
-        <div class="box content mt-5" style="border-left: 5px solid #ee5253; background-color: #f9f9f9;">
-          <h4 class="title is-5" style="color: #2c3e50;">Regret Lower Bound (Theorem 5)</h4>
-          <p>For any algorithm on the class \(\mathcal{A}_c\), the worst-case regret is bounded by:</p>
-          <div class="has-text-centered my-4">
-            \[ \min_{\pi} \max_{\nu \in \mathcal{A}_c} Reg_{\nu}(\pi, T) = \Omega\left(\max\{\sqrt{T}, T^{2-c}\}\right) \]
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-5 has-text-centered">
-        <div class="box" style="background-color: #ffffff;">
-          <img src="static/images/bound_gap.png" alt="Figure 3: Regret Bound Gap" style="width: 100%; height: auto;"/>
-          <p class="is-size-7 mt-2">
-            <strong>Figure 2: Regret bound gap.</strong> The orders of our upper and lower bounds closely match across varying growth rates \(c\), establishing theoretical tightness.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="content has-text-justified mt-5">
-      <h3 class="title is-5">Interpretation</h3>
-      <p>
-        As illustrated in <strong>Figure 2</strong>, the gap between our upper and lower bounds is minimal. CRUCB effectively adapts to varying problem difficulties without prior knowledge of the growth parameter \(c\), ensuring robustness across diverse rising reward scenarios.
-        Please refer to our paper for the regret upper and lower bounds on the more general classes of instances.
-      </p>
-    </div>
-  </div>
-</section>
-
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3">5. Experimental Results: AntMaze-complex</h2>
     
     <div class="content has-text-justified">
       <p>
-        We evaluate <strong>CRUCB</strong> in the <strong>AntMaze-complex</strong> environment, a high-dimensional navigation task featuring 178 possible paths and significant combinatorial complexity. As shown in the performance overview below, while the observed outcomes <strong>(b)</strong> exhibit non-concave dynamics due to the initial learning phase, CRUCB effectively adapts once reward growth begins. This robustness allows our method to significantly outperform all baselines, achieving nearly flat regret <strong>(c)</strong> where traditional combinatorial and rising bandit algorithms suffer from linear growth due to their inability to handle coupled structural dependencies.
+        We evaluate <strong>CRUCB</strong> in the <strong>AntMaze-complex</strong> environment, a high-dimensional navigation task featuring 178 possible paths and significant combinatorial complexity. As shown in the performance overview below, while the observed outcomes <strong>(Figure 3b)</strong> exhibit non-concave dynamics during the initial learning phase, CRUCB effectively adapts once reward growth begins. This robustness allows our method to significantly outperform all baselines, achieving nearly flat regret <strong>(Figure 3c)</strong> where traditional algorithms suffer from linear growth due to their inability to handle coupled structural dependencies.
       </p>
     </div>
 
@@ -314,9 +250,9 @@
       <div class="column is-11">
         <div class="box">
           <figure class="has-text-centered">
-            <img src="static/images/antmaze_consolidated.png" alt="Experimental Results on AntMaze-complex" style="width: 100%; height: auto;"/>
+            <img src="static/images/expeirment.png" alt="Experimental Results on AntMaze-complex" style="width: 100%; height: auto;"/>
             <p class="is-size-7 mt-2">
-              <strong>Figure 6:</strong> (a) Task Topology of AntMaze-complex[cite: 908, 915]. (b) Observed outcomes for each edge type[cite: 885, 892]. (c) Cumulative regret comparison highlighting CRUCB's superior efficiency[cite: 886, 894].
+              <strong>Figure 3:</strong> (a) Task Topology of AntMaze-complex. (b) Observed outcomes for each edge type. (c) Cumulative regret comparison highlighting CRUCB's superior efficiency.
             </p>
           </figure>
         </div>
@@ -325,7 +261,7 @@
 
     <div class="content has-text-justified mt-6">
       <p>
-        A deep dive into the exploration patterns (Figure 14) reveals the structural reasons for this performance gap. While non-combinatorial methods result in scattered, breadth-first search patterns (Figure 14c) and naive combinatorial methods repeatedly attempt impossible edges (Figure 14a), <strong>CRUCB</strong> integrates the rising reward nature with the graph structure to focus its exploration budget on the optimal path, mimicking the focused behavior of an oracle policy.
+        A deep dive into the exploration patterns <strong>(Figure 4)</strong> reveals the structural reasons for this performance gap. While non-combinatorial methods result in scattered, breadth-first search patterns and naive combinatorial methods get trapped in local impossible paths, <strong>CRUCB</strong> integrates the rising reward nature with the graph structure to focus its exploration budget on the optimal path, mimicking the focused behavior of an oracle policy.
       </p>
     </div>
 
@@ -333,9 +269,9 @@
       <div class="column is-full">
         <div class="box p-5" style="background-color: #ffffff;">
           <figure class="has-text-centered">
-            <img src="static/images/figure14_heatmap.png" alt="Exploration Heatmaps" style="width: 100%; height: auto;"/>
+            <img src="static/images/heatmap.png" alt="Exploration Heatmaps" style="width: 100%; height: auto;"/>
             <p class="is-size-7 mt-2">
-              <strong>Figure 14:</strong> Evolution of visit frequencies at $t=100, 500,$ and $3000$ [cite: 1003-1005, 3135]. CRUCB demonstrates the most efficient convergence toward the goal.
+              <strong>Figure 4:</strong> Evolution of visit frequencies at $t=100, 500,$ and $3000$. CRUCB demonstrates the most efficient convergence toward the goal.
             </p>
           </figure>
         </div>
