@@ -198,6 +198,17 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">3. Proposed Method: CRUCB</h2>
 
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <div class="box p-5">
+          <figure class="has-text-centered">
+            <img src="static/images/algorithm.png" alt="Algorithm 1: CRUCB Pseudocode" style="width: 100%; height: auto;"/>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <div class="content has-text-centered mb-6">
       <p>The <strong>Future-UCB index</strong> for each base arm \(i\) is defined as:</p>
       <div class="notification is-white" style="overflow-x: auto;">
@@ -209,29 +220,20 @@
       <div class="columns is-centered is-size-6 mt-4">
         <div class="column is-4">
           <strong>(i) Recent Average</strong><br>
-          Captures the current performance level using a sliding window[cite: 372, 387].
+          Captures the current performance level using a sliding window.
         </div>
         <div class="column is-4">
           <strong>(ii) Predicted Improvement</strong><br>
-          Estimates the growth slope and extrapolates future gains [cite: 373, 389-390].
+          Estimates the growth slope and extrapolates future gains.
         </div>
         <div class="column is-4">
           <strong>(iii) Exploration Bonus</strong><br>
-          Accounts for the uncertainty inherent in rising reward dynamics[cite: 376, 393].
+          Accounts for the uncertainty inherent in rising reward dynamics.
         </div>
       </div>
     </div>
 
-    <div class="columns is-centered">
-      <div class="column is-10">
-        <div class="box p-5">
-          <figure class="has-text-centered">
-            <img src="static/images/algorithm.png" alt="Algorithm 1: CRUCB Pseudocode" style="width: 100%; height: auto;"/>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </div>
+    
 </section>
 
 
