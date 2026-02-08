@@ -63,7 +63,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Combinatorial Rising Bandit</h1>
+            <h1 class="title is-1 publication-title">Combinatorial Rising Bandits</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -174,7 +174,7 @@
         <div class="has-text-centered">
           <img src="static/images/toy_case.png" alt="Toy Example: Rising Rewards and Shared Enhancement" style="width: 150%; height: auto;"/>
           <p class="is-size-7 mt-2">
-            <strong>Figure 1: An illustrative partially shared enhancement </strong> 
+            <strong>Figure 1: An illustrative example for partially shared enhancement </strong> 
             Crucially, every route incorporates the shared edge, which triggers partially shared enhancement across the system. 
             This structural dependency leads to coupled reward dynamics that existing frameworks fail to solve, whereas our algorithm (CRUCB) successfully minimizes regret and converges to the optimal long-term strategy.
           </p>
@@ -197,43 +197,42 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3">3. Proposed Method: CRUCB</h2>
-
+    
     <div class="columns is-centered">
       <div class="column is-10">
-        <div class="box p-5">
+        <div class="box p-5" style="background-color: #ffffff;">
           <figure class="has-text-centered">
-            <img src="static/images/algorithm.png" alt="Algorithm 1: CRUCB Pseudocode" style="width: 100%; height: auto;"/>
+            <img src="static/images/image_a72fe8.png" alt="Algorithm 1: CRUCB" style="width: 100%; height: auto;"/>
           </figure>
         </div>
       </div>
     </div>
-  </div>
 
-    <div class="content has-text-centered mb-6">
-      <p>The <strong>Future-UCB index</strong> for each base arm \(i\) is defined as:</p>
-      <div class="notification is-white" style="overflow-x: auto;">
+    <div class="content has-text-centered mt-6">
+      <p class="is-size-5">The <strong>Future-UCB index</strong> for each base arm \(i\) is defined as:</p>
+      
+      <div class="notification is-white" style="overflow-x: auto; background-color: transparent;">
         \[
         \hat{\mu}_i(t) := \underbrace{\frac{1}{h_i}\sum_{l=N_{i,t-1}-h_i+1}^{N_{i,t-1}}X_i(l)}_{\text{(i) recent average}} + \underbrace{\frac{1}{h_i}\sum_{l=N_{i,t-1}-h_i+1}^{N_{i,t-1}}(t-l)\frac{X_i(l)-X_i(l-h_i)}{h_i}}_{\text{(ii) predicted improvement}} + \underbrace{\sigma(t-N_{i,t-1}+h_i-1)\sqrt{\frac{10 \log t^3}{h_i^3}}}_{\text{(iii) exploration bonus}}
         \]
       </div>
-      
-      <div class="columns is-centered is-size-6 mt-4">
+
+      <div class="columns is-centered mt-5">
         <div class="column is-4">
-          <strong>(i) Recent Average</strong><br>
-          Captures the current performance level using a sliding window.
+          <p><strong>(i) Recent Average</strong><br>
+          <span class="is-size-7">Captures the current performance level using a sliding window.</span></p>
         </div>
         <div class="column is-4">
-          <strong>(ii) Predicted Improvement</strong><br>
-          Estimates the growth slope and extrapolates future gains.
+          <p><strong>(ii) Predicted Improvement</strong><br>
+          <span class="is-size-7">Estimates the growth slope and extrapolates future gains.</span></p>
         </div>
         <div class="column is-4">
-          <strong>(iii) Exploration Bonus</strong><br>
-          Accounts for the uncertainty inherent in rising reward dynamics.
+          <p><strong>(iii) Exploration Bonus</strong><br>
+          <span class="is-size-7">Accounts for the uncertainty inherent in rising reward dynamics.</span></p>
         </div>
       </div>
     </div>
-
-    
+  </div>
 </section>
 
 
